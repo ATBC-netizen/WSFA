@@ -8,11 +8,99 @@
 </head>
 <body>
     <header>
-        <h1>Vehicle Search Portal</h1>
-        <h2>Author: Aidan Bennett - 1590222</h2>
+        <h1 id="title">Vehicle Search Portal</h1>
+        <h2 id="subtitle">Author: Aidan Bennett - 1590222</h2>
     </header>
     <main>
-
+        <form id="vehicleSearchForm">
+            <section id="search-controls">
+                <!-- Search -->
+                <div class="filter-group">
+                    <label for="searchInput">Search using Keyword:</label>
+                    <input type="text" id="searchInput" placeholder="e.g. Toyota, Corsa, 2007... ">
+                </div>
+                <!-- Make -->
+                <div class="filter-group">
+                    <label for="makeFilter">Make:</label>
+                    <select id="makeFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Model -->
+                <div class="filter-group">
+                    <label for="modelFilter">Model:</label>
+                    <select id="modelFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Year -->
+                <fieldset>
+                    <legend>Year</legend>
+                    <div class="filter-group">
+                        <label for="minYear">Start</label>
+                        <input type="number" id="minYear" step="1">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxYear">End</label>
+                        <input type="number" id="maxYear" step="1">
+                    </div>
+                </fieldset>
+                <!-- Price -->
+                <fieldset>
+                    <legend>Price</legend>
+                    <div class="filter-group">
+                        <label for="minPrice">Minimum</label>
+                        <input type="number" id="minPrice" step="0.01">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxPrice">Maximum</label>
+                        <input type="number" id="maxPrice" step="0.01">
+                    </div>
+                </fieldset>
+                <!-- Transmission -->
+                <div class="filter-group">
+                    <label for="transmissionFilter">Transmission:</label>
+                    <select id="transmissionFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Mileage -->
+                <div class="filter-group">
+                    <label for="mileageFilter">Mileage:</label>
+                    <select id="mileageFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Fuel Type -->
+                <div class="filter-group">
+                    <label for="fuelTypeFilter">Fuel Type:</label>
+                    <select id="fuelTypeFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Tax -->
+                <div class="filter-group">
+                    <label for="taxFilter">Tax:</label>
+                    <select id="taxFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Miles Per Gallon -->
+                <div class="filter-group">
+                    <label for="mpgFilter">MPG:</label>
+                    <select id="mpgFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Engine Size -->
+                <div class="filter-group">
+                    <label for="engineSizeFilter">Engine Size:</label>
+                    <select id="engineSizeFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+            </section>
+        </form>
     </main>
     <script src="script.js"></script>
 </body>
