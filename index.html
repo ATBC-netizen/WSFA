@@ -12,13 +12,8 @@
         <h2 id="subtitle">Author: Aidan Bennett - 1590222</h2>
     </header>
     <main>
-        <form id="vehicleSearchForm">
+        <form id="vehicleSearchForm" name="vehicleSearchForm">
             <section id="search-controls">
-                <!-- Search -->
-                <div class="filter-group">
-                    <label for="searchInput">Search using Keyword:</label>
-                    <input type="text" id="searchInput" placeholder="e.g. Toyota, Corsa, 2007... ">
-                </div>
                 <!-- Make -->
                 <div class="filter-group">
                     <label for="makeFilter">Make:</label>
@@ -30,6 +25,20 @@
                 <div class="filter-group">
                     <label for="modelFilter">Model:</label>
                     <select id="modelFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Transmission -->
+                <div class="filter-group">
+                    <label for="transmissionFilter">Transmission:</label>
+                    <select id="transmissionFilter">
+                        <option value="All">All</option>
+                    </select>
+                </div>
+                <!-- Fuel Type -->
+                <div class="filter-group">
+                    <label for="fuelTypeFilter">Fuel Type:</label>
+                    <select id="fuelTypeFilter">
                         <option value="All">All</option>
                     </select>
                 </div>
@@ -49,58 +58,73 @@
                 <fieldset>
                     <legend>Price</legend>
                     <div class="filter-group">
-                        <label for="minPrice">Minimum</label>
+                        <label for="minPrice">Start</label>
                         <input type="number" id="minPrice" step="0.01">
                     </div>
                     <div class="filter-group">
-                        <label for="maxPrice">Maximum</label>
+                        <label for="maxPrice">End</label>
                         <input type="number" id="maxPrice" step="0.01">
                     </div>
                 </fieldset>
-                <!-- Transmission -->
-                <div class="filter-group">
-                    <label for="transmissionFilter">Transmission:</label>
-                    <select id="transmissionFilter">
-                        <option value="All">All</option>
-                    </select>
-                </div>
                 <!-- Mileage -->
-                <div class="filter-group">
-                    <label for="mileageFilter">Mileage:</label>
-                    <select id="mileageFilter">
-                        <option value="All">All</option>
-                    </select>
-                </div>
-                <!-- Fuel Type -->
-                <div class="filter-group">
-                    <label for="fuelTypeFilter">Fuel Type:</label>
-                    <select id="fuelTypeFilter">
-                        <option value="All">All</option>
-                    </select>
-                </div>
-                <!-- Tax -->
-                <div class="filter-group">
-                    <label for="taxFilter">Tax:</label>
-                    <select id="taxFilter">
-                        <option value="All">All</option>
-                    </select>
-                </div>
+                <fieldset>
+                    <legend>Mileage</legend>
+                    <div class="filter-group">
+                        <label for="minMileage">Start</label>
+                        <input type="number" id="minMileage" step="0.1">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxMileage">End</label>
+                        <input type="number" id="maxMileage" step="0.1">
+                    </div>
+                </fieldset>
                 <!-- Miles Per Gallon -->
-                <div class="filter-group">
-                    <label for="mpgFilter">MPG:</label>
-                    <select id="mpgFilter">
-                        <option value="All">All</option>
-                    </select>
-                </div>
+                <fieldset>
+                    <legend>Miles Per Gallon</legend>
+                    <div class="filter-group">
+                        <label for="minMPG">Start</label>
+                        <input type="number" id="minMPG" step="0.1">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxMPG">End</label>
+                        <input type="number" id="maxMPG" step="0.1">
+                    </div>
+                </fieldset>
+                <!-- Tax -->
+                <fieldset>
+                    <legend>Tax</legend>
+                    <div class="filter-group">
+                        <label for="minTax">Start</label>
+                        <input type="number" id="minTax" step="0.1">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxTax">End</label>
+                        <input type="number" id="maxTax" step="0.1">
+                    </div>
+                </fieldset>
                 <!-- Engine Size -->
+                <fieldset>
+                    <legend>Engine Size</legend>
+                    <div class="filter-group">
+                        <label for="minEngineSize">Start</label>
+                        <input type="number" id="minEngineSize" step="0.1">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxEngineSize">End</label>
+                        <input type="number" id="maxEngineSize" step="0.1">
+                    </div>
+                </fieldset>
+
+                <!-- Search
                 <div class="filter-group">
-                    <label for="engineSizeFilter">Engine Size:</label>
-                    <select id="engineSizeFilter">
-                        <option value="All">All</option>
-                    </select>
-                </div>
+                    <label for="searchInput">Search using Keyword:</label>
+                    <input type="text" id="searchInput" placeholder="e.g. Toyota, Corsa, 2007... ">
+                </div> -->
+
             </section>
         </form>
+        <section id="display-results">
+        </section>
     </main>
     <script src="script.js"></script>
 </body>
