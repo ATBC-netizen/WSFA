@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Page Title -->
     <title>Vehicle Search Portal</title>
+    <!-- Stylesheet Linking -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
+        <!-- Header Content -->
         <h1 id="title">Vehicle Search Portal</h1>
         <h2 id="subtitle">Author: Aidan Bennett - 1590222</h2>
     </header>
     <main>
+        <!-- Form -->
         <form id="vehicleSearchForm" name="vehicleSearchForm">
             <section id="search-controls">
                 <!-- Make -->
@@ -114,18 +118,24 @@
                         <input type="number" id="maxEngineSize" step="0.1">
                     </div>
                 </fieldset>
+                <!-- Submit Event -->
+                <button type="submit" id="submitEvent">Search</button>
 
-                <!-- Search
-                <div class="filter-group">
-                    <label for="searchInput">Search using Keyword:</label>
-                    <input type="text" id="searchInput" placeholder="e.g. Toyota, Corsa, 2007... ">
-                </div> -->
 
             </section>
         </form>
+        <!-- Results Display -->
         <section id="display-results">
         </section>
+        <!-- Modal -->
+        <div id="modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="close-btn" id="closeModal">&times;</button> <!-- The "&times;" represents the "times" symbol (×), rather than the letter "x" -->
+                <div id="modalBody"></div>
+            </div>
+        </div>
     </main>
+    <!-- Script Linking -->
     <script src="script.js"></script>
 </body>
 </html>
