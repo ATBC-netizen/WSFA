@@ -122,51 +122,56 @@ function filterBy(data, searchString, prop) {
     });
 }
 
+// Filters the information based on a range (user-input), used to avoid hard-coding the function and allows the function to be used again in the future if necessary.
 
+function rangeFilter(data, misc) {
+    var min = Number(document.getElementById(misc.minID).value) || 0
+    var max = Number(document.getElementById(misc.maxID).value) || Infinity
+
+    return data.filter(function (item) {
+        return item[misc.prop] >= min && item[misc.prop] <= max
+    })
+}
+
+// Filters the information based on the searchString, used to avoid hard-coding the function and allows the function to be used again in the future if necessary.
+function miscFilter(data, misc) {
+    var searchString = document.getElementById(misc.id).value
+
+    return filterBy(data, searchString, misc.prop)
+}
 
 function searchAndDisplayResults(vhcs) {
-    var chosenMake = vehicleSearchForm.makeFilter.value
-    var chosenModel = vehicleSearchForm.modelFilter.value
-    var chosenTransmission = vehicleSearchForm.transmissionFilter.value
-    var chosenFuelType = vehicleSearchForm.fuelTypeFilter.value
+    // Variables for the miscFilter function. An array of objects is used to avoid hard-coding the function and allows for expansion in the future if necessary.
+    // If a new range range needs to be added, all that is required is the addition of a new object within the array below.
 
-    var vehiclesFound = filterBy(vhcs, chosenMake, "make")
-    vehiclesFound = filterBy(vehiclesFound, chosenModel, "model")
-    vehiclesFound = filterBy(vehiclesFound, chosenTransmission, "transmission")
-    vehiclesFound = filterBy(vehiclesFound, chosenFuelType, "fuelType")
-    
-    var minYear = Number(document.getElementById('minYear').value) || 0
-    var maxYear = Number(document.getElementById('maxYear').value) || Infinity
-    vehiclesFound = vehiclesFound.filter(function (item) {
-        return item.year >= minYear && item.year <= maxYear
+    var miscFilters = [
+        { prop: "make", id: "makeFilter" },
+        { prop: "model", id: "modelFilter" },
+        { prop: "transmission", id: "transmissionFilter" },
+        { prop: "fuelType", id: "fuelTypeFilter" }
+    ]
+
+    // Variables for the rangeFilter function. An array of objects is used to avoid hard-coding the function and allows for expansion in the future if necessary.
+    // If a new range range needs to be added, all that is required is the addition of a new object within the array below.
+
+
+    var rangeFilters = [
+        { prop: "year", minID: "minYear", maxID: "maxYear" },
+        { prop: "price", minID: "minPrice", maxID: "maxPrice" },
+        { prop: "mileage", minID: "minMileage", maxID: "maxMileage" },
+        { prop: "mpg", minID: "minMPG", maxID: "maxMPG" },
+        { prop: "tax", minID: "minTax", maxID: "maxTax" },
+        { prop: "engineSize", minID: "minEngineSize", maxID: "maxEngineSize" }
+    ]
+
+    var vehiclesFound = vhcs
+
+    miscFilters.forEach(function (misc) {
+        vehiclesFound = miscFilter(vehiclesFound, misc)
     })
 
-    var minPrice = Number(document.getElementById('minPrice').value) || 0
-    var maxPrice = Number(document.getElementById('maxPrice').value) || Infinity
-    vehiclesFound = vehiclesFound.filter(function (item) {
-        return item.price >= minPrice && item.price <= maxPrice
-    })
-
-    var minMileage = Number(document.getElementById('minMileage').value) || 0
-    var maxMileage = Number(document.getElementById('maxMileage').value) || Infinity
-    vehiclesFound = vehiclesFound.filter(function (item) {
-        return item.mileage >= minMileage && item.mileage <= maxMileage
-    })
-
-    var minMPG = Number(document.getElementById('minMPG').value) || 0
-    var maxMPG = Number(document.getElementById('maxMPG').value) || Infinity
-    vehiclesFound = vehiclesFound.filter(function (item) {
-        return item.mpg >= minMPG && item.mpg <= maxMPG
-    })
-    var minTax = Number(document.getElementById('minTax').value) || 0
-    var maxTax = Number(document.getElementById('maxTax').value) || Infinity
-    vehiclesFound = vehiclesFound.filter(function (item) {
-        return item.tax >= minTax && item.tax <= maxTax
-    })
-    var minEngineSize = Number(document.getElementById('minEngineSize').value) || 0
-    var maxEngineSize = Number(document.getElementById('maxEngineSize').value) || Infinity
-    vehiclesFound = vehiclesFound.filter(function (item) {
-        return item.engineSize >= minEngineSize && item.engineSize <= maxEngineSize
+    rangeFilters.forEach(function (misc) {
+        vehiclesFound = rangeFilter(vehiclesFound, misc)
     })
 
     displayResults(vehiclesFound)
