@@ -45,10 +45,6 @@ legend {
     background: darkblue;
 }
 
-#display-results {
-    display: grid;
-}
-
 .vehicle-card {
     border: 1px solid #1A365D;
     border-radius: 12px;
